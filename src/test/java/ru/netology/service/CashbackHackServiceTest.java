@@ -27,21 +27,12 @@ void shouldReturn100IfAmount900() {
         assertEquals(expected, actual);
 
     }
-    @Test
-    void shouldReturn0IfAmount2000() {
-        CashbackHackService service = new CashbackHackService();
-        int amount = 2000;
-        int actual = service.remain(amount);
-        int expected = 0;
-        assertEquals(expected, actual);
 
-    }
 
     @Test
     void shouldReturnExeptionIfAmountMinus200()  {
         CashbackHackService service = new CashbackHackService();
         int amount = -200;
-
-        assertThrows(RuntimeException.class, ()-> {service.remain(amount);} );
+        assertThrows(IllegalArgumentException.class, ()-> {service.remain(amount);} );
     }
 }
